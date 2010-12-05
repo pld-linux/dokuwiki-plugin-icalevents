@@ -4,14 +4,15 @@
 Summary:	Parses an iCal calendar .ics file and renders it as an HTML table
 Name:		dokuwiki-plugin-icalevents
 Version:	20100501
-Release:	0.5
+Release:	0.6
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://public.doogie.de/projects/dokuwiki/plugin_iCalEvents_2.0.zip
 # Source0-md5:	abef6798132ba03b74afd72ea62678ca
 URL:		http://www.dokuwiki.org/plugin:icalevents
-BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Patch0:		dformat.patch
+Patch1:		reset-error.patch
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
 Requires:	dokuwiki >= 20080505
 Requires:	php-common >= 4:%{php_min_version}
@@ -35,6 +36,7 @@ and display upcoming events as an HTML table.
 mv iCalEvents/* .
 %undos -f php
 %patch0 -p1
+%patch1 -p1
 
 version=$(awk -F"'" '/date/&&/=>/{print $4}' syntax.php)
 if [ "$(echo "$version" | tr -d -)" != %{version} ]; then
