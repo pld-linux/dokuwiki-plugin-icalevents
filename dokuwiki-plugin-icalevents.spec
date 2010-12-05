@@ -1,10 +1,10 @@
-%define		plugin	icalevents
+%define		plugin	iCalEvents
 %define		php_min_version 5.0.0
 %include	/usr/lib/rpm/macros.php
 Summary:	Parses an iCal calendar .ics file and renders it as an HTML table
-Name:		dokuwiki-plugin-%{plugin}
+Name:		dokuwiki-plugin-icalevents
 Version:	20100501
-Release:	0.4
+Release:	0.5
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://public.doogie.de/projects/dokuwiki/plugin_iCalEvents_2.0.zip
