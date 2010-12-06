@@ -13,6 +13,7 @@ URL:		http://www.dokuwiki.org/plugin:icalevents
 Patch0:		dformat.patch
 Patch1:		reset-error.patch
 Patch2:		allow-params.patch
+Patch3:		relative-dates.patch
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
 Requires:	dokuwiki >= 20080505
@@ -39,6 +40,7 @@ mv iCalEvents/* .
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 version=$(awk -F"'" '/date/&&/=>/{print $4}' syntax.php)
 if [ "$(echo "$version" | tr -d -)" != %{version} ]; then
