@@ -16,6 +16,7 @@ Patch2:		allow-params.patch
 Patch3:		relative-dates.patch
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
+BuildRequires:	unzip
 Requires:	dokuwiki >= 20080505
 Requires:	php-common >= 4:%{php_min_version}
 Requires:	php-date
