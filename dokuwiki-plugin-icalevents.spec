@@ -1,13 +1,15 @@
+%define		subver	2012-09-09
+%define		ver		%(echo %{subver} | tr -d -)
 %define		plugin	icalevents
 %define		php_min_version 5.0.0
 %include	/usr/lib/rpm/macros.php
 Summary:	Parses an iCal calendar .ics file and renders it as an HTML table
 Name:		dokuwiki-plugin-%{plugin}
-Version:	20120909
+Version:	%{ver}
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	https://github.com/glensc/dokuwiki-plugin-icalevents/tarball/2012-09-09/%{name}-%{version}.tgz
+Source0:	https://github.com/glensc/dokuwiki-plugin-icalevents/tarball/%{subver}/%{name}-%{version}.tgz
 # Source0-md5:	f06f7df14b65359ff83096c1cec11e02
 URL:		http://www.dokuwiki.org/plugin:icalevents
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
