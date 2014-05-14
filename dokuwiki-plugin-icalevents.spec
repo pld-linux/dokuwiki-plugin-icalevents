@@ -6,7 +6,7 @@
 Summary:	Parses an iCal calendar .ics file and renders it as an HTML table
 Name:		dokuwiki-plugin-%{plugin}
 Version:	%{ver}
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	https://github.com/glensc/dokuwiki-plugin-icalevents/tarball/%{subver}/%{name}-%{version}.tgz
@@ -17,8 +17,8 @@ BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	unzip
 Requires:	dokuwiki >= 20080505
 Requires:	php(core) >= %{php_min_version}
+Requires:	php(date)
 Requires:	php(pcre)
-Requires:	php-date
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
