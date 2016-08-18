@@ -1,7 +1,7 @@
-%define		subver	2016-08-17
+%define		subver	2016-08-18
 %define		ver		%(echo %{subver} | tr -d -)
 %define		plugin	icalevents
-%define		php_min_version 5.4.0
+%define		php_min_version 5.3.0
 %include	/usr/lib/rpm/macros.php
 Summary:	Displays a calendar in iCalendar format according to a template
 Name:		dokuwiki-plugin-%{plugin}
@@ -10,7 +10,7 @@ Release:	1
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	https://github.com/real-or-random/dokuwiki-plugin-icalevents/releases/download/%{subver}/dokuwiki-plugin-icalevents-%{subver}.zip
-# Source0-md5:	3556fb0cc3e429d9aab7389f0d3280e5
+# Source0-md5:	518006eaaf16200112f2d5feb403a7f6
 URL:		http://www.dokuwiki.org/plugin:icalevents
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
