@@ -1,17 +1,16 @@
-%define		subver	2012-10-13
+%define		subver	2016-08-17
 %define		ver		%(echo %{subver} | tr -d -)
 %define		plugin	icalevents
-%define		php_min_version 5.0.0
+%define		php_min_version 5.4.0
 %include	/usr/lib/rpm/macros.php
-Summary:	Parses an iCal calendar .ics file and renders it as an HTML table
+Summary:	Displays a calendar in iCalendar format according to a template
 Name:		dokuwiki-plugin-%{plugin}
 Version:	%{ver}
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-#Source0:	https://github.com/glensc/dokuwiki-plugin-icalevents/tarball/%{subver}/%{name}-%{version}.tgz
-Source0:	https://github.com/ironiemix/dokuwiki-plugin-icalevents/archive/master.tar.gz
-# Source0-md5:	267465821cd43dd5f6e8ab394451c265
+Source0:	https://github.com/real-or-random/dokuwiki-plugin-icalevents/releases/download/%{subver}/dokuwiki-plugin-icalevents-%{subver}.zip
+# Source0-md5:	3556fb0cc3e429d9aab7389f0d3280e5
 URL:		http://www.dokuwiki.org/plugin:icalevents
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
@@ -36,7 +35,10 @@ and display upcoming events as an HTML table.
 
 %prep
 %setup -qc
-mv *icalevents-*/* .
+mv *icalevents*/* .
+
+# empty file
+rm index.html
 
 %build
 version=$(awk '/^date/{print $2}' plugin.info.txt)
@@ -58,7 +60,9 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %dir %{plugindir}
-%{plugindir}/*.css
 %{plugindir}/*.php
 %{plugindir}/*.txt
 %{plugindir}/conf
+%{plugindir}/ics.png
+%dir %{plugindir}/externals
+%{plugindir}/externals/iCalcreator
